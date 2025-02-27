@@ -5,3 +5,12 @@
  * Requires Plugins: teachable
  * Update URI: false
  */
+
+declare( strict_types=1 );
+
+namespace WPDC\Teachable_Course_Curriculum;
+
+const BUILD_DIR = __DIR__ . '/build';
+
+require_once __DIR__ . '/inc/blocks/curriculum.php';
+Blocks\Curriculum\bootstrap();
