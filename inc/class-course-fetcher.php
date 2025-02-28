@@ -45,4 +45,35 @@ class Course_Fetcher {
 
 		return $this->api_key;
 	}
+
+	/**
+	 * Fetch data from the Teachable API.
+	 *
+	 * @param string $url The URL to fetch.
+	 * @return array The fetched data.
+	 * @throws Exception If there is an error fetching the data, or if the data is invalid.
+	 */
+	protected function fetch( string $url ): array {
+		$response = wp_remote_get(
+			$url,
+			[
+				'headers' => [
+					'apiKey' => $this->get_api_key(),
+				],
+				'timeout' => 300,
+			]
+		);
+
+		if ( is_wp_error( $response ) ) {
+			throw new Exception( 'Error for request to URL ' . $url . ': ' . $response->get_error_message() );
+		}
+
+		$data = json_decode( wp_remote_retrieve_body( $response ), true );
+
+		if ( ! is_array( $data ) ) {
+			throw new Exception( 'Error decoding JSON data for request to URL ' . $url );
+		}
+
+		return $data;
+	}
 }
