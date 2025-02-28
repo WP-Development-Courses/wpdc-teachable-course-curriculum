@@ -12,5 +12,11 @@ namespace WPDC\Teachable_Course_Curriculum;
 
 const BUILD_DIR = __DIR__ . '/build';
 
+// Ensure that we got everything we need to start the plugin.
+require_once __DIR__ . '/inc/start-up-check.php';
+if ( ! Start_Up_Check\has_teachable_wp_key() ) {
+	return;
+}
+
 require_once __DIR__ . '/inc/blocks/curriculum.php';
 Blocks\Curriculum\bootstrap();
