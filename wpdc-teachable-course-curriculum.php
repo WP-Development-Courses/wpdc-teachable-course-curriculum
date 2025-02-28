@@ -18,5 +18,9 @@ if ( ! Start_Up_Check\has_teachable_wp_key() ) {
 	return;
 }
 
+// Libraries.
+require_once __DIR__ . '/inc/class-course-data.php';
+
+// Namespaces.
 require_once __DIR__ . '/inc/blocks/curriculum.php';
 Blocks\Curriculum\bootstrap();
