@@ -12,9 +12,25 @@ use Teachable;
 
 class Course_Fetcher {
 	/**
+	 * @var int The course ID to get data for.
+	 */
+	protected int $course_id;
+
+	/**
 	 * @var string The API key to use for requests.
 	 */
 	protected string $api_key;
+
+	/**
+	 * Course_Fetcher constructor.
+	 *
+	 * @param int $course_id The course ID to get data for.
+	 * @throws Exception If the API key is not found or invalid.
+	 */
+	public function __construct( int $course_id ) {
+		$this->course_id = $course_id;
+		$this->api_key = $this->get_api_key();
+	}
 
 	/**
 	 * Get the Teachable API key.
@@ -25,10 +41,6 @@ class Course_Fetcher {
 	 * @throws Exception If the key is not found or invalid.
 	 */
 	protected function get_api_key(): string {
-		if ( $this->api_key ) {
-			return $this->api_key;
-		}
-
 		$settings = get_option( 'teachable_general_settings' );
 
 		if ( empty( $settings['wp_key'] ) ) {
@@ -41,9 +53,7 @@ class Course_Fetcher {
 			throw new Exception( 'Invalid API key found in settings.' );
 		}
 
-		$this->api_key = $key;
-
-		return $this->api_key;
+		return $key;
 	}
 
 	/**
@@ -75,5 +85,29 @@ class Course_Fetcher {
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Fetch course data from the Teachable API.
+	 *
+	 * @return array The course data.
+	 *
+	 * @throws Exception If there is an error fetching the data, or if the data is invalid.
+	 */
+	public function fetch_course_data(): array {
+		return $this->fetch( 'https://developers.teachable.com/v1/courses/' . $this->course_id );
+	}
+
+	/**
+	 * Fetch lecture data from the Teachable API.
+	 *
+	 * @param int $lecture_id The lecture ID to fetch.
+	 *
+	 * @return array The lecture data.
+	 *
+	 * @throws Exception If there is an error fetching the data, or if the data is invalid.
+	 */
+	public function fetch_lecture_data( int $lecture_id ): array {
+		return $this->fetch( 'https://developers.teachable.com/v1/courses/' . $this->course_id . '/lectures/' . $lecture_id );
 	}
 }

@@ -49,3 +49,32 @@ function get_course_endpoint_response(): array {
 		],
 	];
 }
+
+/**
+ * Get the lecture endpoint response.
+ *
+ * @return array The lecture endpoint response.
+ */
+function get_lecture_endpoint_response(): array {
+	return [
+		"lecture" => [
+			"id"                 => 47756763,
+			"name"               => "What you'll learn in this section",
+			"position"           => 1,
+			"is_published"       => true,
+			"lecture_section_id" => 9082340,
+			"attachments"        => [
+				[
+					"id"             => 87708097,
+					"name"           => "2 - 1 -- What you-ll learn in this section.mp4",
+					"kind"           => "video",
+					"url"            => null,
+					"text"           => null,
+					"position"       => 1,
+					"file_size"      => 0,
+					"file_extension" => "mp4",
+				]
+			]
+		]
+	];
+}

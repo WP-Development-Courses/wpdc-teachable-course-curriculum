@@ -19,6 +19,7 @@ if ( ! Start_Up_Check\has_teachable_wp_key() ) {
 }
 
 // Libraries.
+require_once __DIR__ . '/inc/class-course-fetcher.php';
 require_once __DIR__ . '/inc/class-course-data.php';
 
 // Namespaces.
