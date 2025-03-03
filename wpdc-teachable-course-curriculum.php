@@ -23,7 +23,9 @@ require_once __DIR__ . '/inc/class-course-fetcher.php';
 require_once __DIR__ . '/inc/class-course-data.php';
 
 // Namespaces.
+require_once __DIR__ . '/inc/refresh-curriculum.php';
 require_once __DIR__ . '/inc/blocks/curriculum.php';
 require_once __DIR__ . '/inc/blocks/section.php';
+Refresh_Curriculum\bootstrap();
 Blocks\Curriculum\bootstrap();
 Blocks\Section\bootstrap();
