@@ -1,0 +1,11 @@
+{
+	"devDependencies": {
+		"@wordpress/scripts": "^30.11.0"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:js": "wp-scripts lint-js",
+		"start": "wp-scripts start"
+	}
+}
