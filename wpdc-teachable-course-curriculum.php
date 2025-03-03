@@ -24,4 +24,6 @@ require_once __DIR__ . '/inc/class-course-data.php';
 
 // Namespaces.
 require_once __DIR__ . '/inc/blocks/curriculum.php';
+require_once __DIR__ . '/inc/blocks/section.php';
 Blocks\Curriculum\bootstrap();
+Blocks\Section\bootstrap();

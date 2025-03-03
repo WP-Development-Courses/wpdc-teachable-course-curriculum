@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wpdc/teachable-course-section",
+	"title": "Teachable Course Section",
+	"category": "wpdc",
+	"description": "Displays the section of a course, synced from Teachable.",
+	"ancestor": [ "wpdc/teachable-course-curriculum" ],
+	"supports": {
+		"anchor": false,
+		"html": false
+	},
+	"attributes": {
+		"sectionId": {
+			"type": "number"
+		}
+	},
+	"editorScript": "file:index.js"
+}

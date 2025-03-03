@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wpdc/teachable-course-curriculum",
+	"title": "Teachable Course Curriculum",
+	"category": "wpdc",
+	"description": "Displays the curriculum of a course, synced from Teachable.",
+	"supports": {
+		"anchor": false,
+		"align": [ "wide", "full" ],
+		"html": false
+	},
+	"attributes": {
+		"lessonIds": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"allowedBlocks": [ "wpdc/teachable-course-section" ],
+	"editorScript": "file:index.js",
+	"editorStyle": "file:style-index.css",
+	"style": "file:style-index.css",
+	"viewScript": "wpdc-convertkit"
+}
